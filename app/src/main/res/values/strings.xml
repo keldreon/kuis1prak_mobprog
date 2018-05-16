@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">KuisPrak1</string>
+    <string name="app_name">Kuis Prak1</string>
+
+    <string name="total">Total Harga Sementara:</string>
+    <string name="def_total">RP 0</string>
+    <string name="tambah">Tambah Lagi :</string>
+
+    <string name="h_nama_brg">Nama Barang</string>
+    <string-array name="l_jenis">
+        <item>Bumbu</item>
+        <item>Buah</item>
+        <item>Sayur</item>
+        <item>Perkakas</item>
+        <item>Racun</item>
+        <item>Senjata</item>
+    </string-array>
+    <string name="h_harga">Harga Barang</string>
+    <string name="bt_simpan">Simpan</string>
 </resources>
