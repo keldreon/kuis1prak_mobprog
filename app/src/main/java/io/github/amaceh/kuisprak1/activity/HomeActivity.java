@@ -104,11 +104,13 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onResponse(Response<ApiData<List<Barang>>> response, Retrofit retrofit) {
                 apiBarang = response.body();
-                hideDialog();
+
                 Toast.makeText(c, "Sync Selesai", Toast.LENGTH_LONG).show();
                 lBarang.addAll(apiBarang.getData());
-                    //adapter.notifyItemRangeInserted(0, apiKuliah.getData().size());
+                //adapter.notifyItemRangeInserted(0, apiKuliah.getData().size());
                 adapter.notifyDataSetChanged();
+                hideDialog();
+                //Log.e("TAG", "response 33: "+new Gson().toJson(response.body()) );
             }
 
             @Override
