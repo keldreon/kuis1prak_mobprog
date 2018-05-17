@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.KelolaActivity"></activity>
+        <activity android:name=".activity.KelolaActivity" />
+        <activity android:name=".activity.Lihat"></activity>
     </application>
 
 </manifest>
