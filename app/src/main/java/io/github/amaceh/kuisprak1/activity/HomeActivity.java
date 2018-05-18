@@ -15,6 +15,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,6 +57,7 @@ public class HomeActivity extends AppCompatActivity {
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rcBarang.getContext(),
                 layoutManager.getOrientation());
         rcBarang.addItemDecoration(dividerItemDecoration);
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -97,20 +100,17 @@ public class HomeActivity extends AppCompatActivity {
         final Context c = this;
         //sp = getSharedPreferences("io.github.amaceh.backend_prak.user", MODE_PRIVATE);
         //String api_key = sp.getString("api_key", "");
-
         APIInterface apiService = APIClient.getClient().create(APIInterface.class);
         Call<ApiData<List<Barang>>> call = apiService.getBarang();
         call.enqueue(new Callback<ApiData<List<Barang>>>() {
             @Override
             public void onResponse(Response<ApiData<List<Barang>>> response, Retrofit retrofit) {
-                apiBarang = response.body();
-
-                Toast.makeText(c, "Sync Selesai", Toast.LENGTH_LONG).show();
-                lBarang.addAll(apiBarang.getData());
-                //adapter.notifyItemRangeInserted(0, apiKuliah.getData().size());
-                adapter.notifyDataSetChanged();
                 hideDialog();
-                //Log.e("TAG", "response 33: "+new Gson().toJson(response.body()) );
+                apiBarang = response.body();
+                Toast.makeText(c, "Sync Selesai", Toast.LENGTH_LONG).show();
+                adapter.swap(apiBarang.getData());
+                adapter.notifyDataSetChanged();
+                Log.e("TAG", "response 33: "+new Gson().toJson(response.body()) );
             }
 
             @Override

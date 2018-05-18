@@ -1,11 +1,12 @@
 package io.github.amaceh.kuisprak1.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import io.github.amaceh.kuisprak1.R;
+import io.github.amaceh.kuisprak1.activity.Model.Barang;
 
 public class KelolaActivity extends AppCompatActivity {
 
@@ -20,5 +21,10 @@ public class KelolaActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         sp_jenis.setAdapter(adapter);
+
+    }
+
+    public void doSomething(Barang baru){
+
     }
 }
